@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>add.svg</file>
+    <file>rocket.svg</file>
+    <file>sync.svg</file>
+    <file>bolt.svg</file>
+    <file>clean.svg</file>
+    <file>heart.svg</file>
+    <file>lock.svg</file>
+    <file>exit.svg</file>
+  </qresource>
+</RCC>
