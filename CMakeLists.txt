@@ -10,7 +10,7 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Charts Multimedia MultimediaWidgets WebEngineWidgets)
+find_package(Qt5 REQUIRED COMPONENTS Widgets Charts)
 
 
 set(SOURCES
@@ -19,8 +19,6 @@ set(SOURCES
     src/chart.cpp
     src/gyro_chart.cpp
     src/list_item.cpp
-    src/player.cpp
-    src/webview.cpp
 )
 
 set(HEADERS
@@ -28,8 +26,6 @@ set(HEADERS
     include/chart.hpp
     include/gyro_chart.hpp
     include/list_item.hpp
-    include/player.hpp
-    include/webview.hpp
 )
 
 set(UIS
@@ -46,9 +42,6 @@ target_sources(${PROJECT_NAME} PRIVATE
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_link_libraries(${PROJECT_NAME} PRIVATE 
-    Qt6::Widgets
-    Qt6::Charts
-    Qt6::Multimedia
-    Qt6::MultimediaWidgets
-    Qt6::WebEngineWidgets
+    Qt5::Widgets
+    Qt5::Charts
 )

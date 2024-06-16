@@ -1,13 +1,13 @@
-#pragma once
+// #pragma once
 
-#include <QWebEngineView>
+// #include <QWebEngineView>
 
-/**
-  @brief Webview class
-*/
-class Webview : public QWebEngineView
-{
-  Q_OBJECT
-public:
-  Webview();
-};
+// /**
+//   @brief Webview class
+// */
+// class Webview : public QWebEngineView
+// {
+//   Q_OBJECT
+// public:
+//   Webview();
+// };

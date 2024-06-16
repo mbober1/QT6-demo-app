@@ -25,8 +25,8 @@ private:
     QChartView chartView;
     GyroChart chart;
     QTimer timer;
-    Player player;
-    Webview webview;
+    // Player player;
+    // Webview webview;
 
 private slots:
     void addPoint();

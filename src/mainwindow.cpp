@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
   ui->setupUi(this);
   chartView.setChart(&chart);
   ui->chartLayout->addWidget(&chartView);
-  ui->videoLayout->addWidget(&player);
-  ui->webviewLayout->addWidget(&webview);
+  // ui->videoLayout->addWidget(&player);
+  // ui->webviewLayout->addWidget(&webview);
 
   for (int i = 0; i < 10; i++)
   {
@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 
   connect(&timer, &QTimer::timeout, this, &MainWindow::addPoint);
   connect(ui->pushButton_clean, &QPushButton::clicked, &chart, &GyroChart::clear);
-  connect(ui->pushButton_rocket, &QPushButton::clicked, &player, &Player::restart);
+  // connect(ui->pushButton_rocket, &QPushButton::clicked, &player, &Player::restart);
   timer.start(1000 / CHART_FRAME_RATE);
 }
 

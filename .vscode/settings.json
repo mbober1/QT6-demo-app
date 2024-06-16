@@ -74,7 +74,9 @@
     "valarray": "cpp",
     "variant": "cpp",
     "*.conf": "bitbake",
-    "*.inc": "bitbake"
+    "*.inc": "bitbake",
+    "qgraphicswidget": "cpp",
+    "qmargins": "cpp"
   },
   "python.autoComplete.extraPaths": [
     "${workspaceFolder}/sources/poky/bitbake/lib",
