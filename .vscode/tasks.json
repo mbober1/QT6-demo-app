@@ -2,12 +2,70 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build target",
+      "label": "Build",
       "type": "shell",
-      "command": "make -j12",
+      "command": "cmake -B build -S . -G Ninja && cmake --build build",
       "options": {
-        "cwd": "${workspaceFolder}/build"
+        "cwd": "${workspaceFolder}"
       },
+    },
+    
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "rm -rf build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+    },
+
+    {
+      "label": "Deploy to target",
+      "type": "shell",
+      "command": "/bin/sh -c 'scp -r build root@[fe80::a851:45ff:fe17:d52d%eno1]:/home/root'",
+      "group": "none",
+      "problemMatcher": ["$eslint-compact"],
+      "presentation": {
+          "echo": false,
+          "reveal": "always",
+          "focus": true,
+          "panel": "shared",
+          "showReuseMessage": true,
+          "clear": true
+      }
+    },
+
+    {
+      "label": "Start remote gdbserver",
+      "type": "shell",
+      // "dependsOn": ["Build", "Deploy to target", "Kill remote gdbserver"],
+      "command": "/bin/sh -c 'ssh root@'fe80::a851:45ff:fe17:d52d%eno1' /usr/bin/gdbserver localhost:3000 /home/root/build/qt_test &'",
+      "group": "none",
+      "problemMatcher": ["$eslint-compact"],
+      "presentation": {
+          "echo": false,
+          "reveal": "always",
+          "focus": true,
+          "panel": "shared",
+          "showReuseMessage": true,
+          "clear": true
+      }
+    },
+
+    {
+      "label": "Kill remote gdbserver",
+      "type": "shell",
+      "command": "/bin/sh -c 'ssh root@'fe80::a851:45ff:fe17:d52d%eno1' killall gdbserver' || true",
+      "group": "none",
+      "problemMatcher": ["$eslint-compact"],
+      "presentation": {
+          "echo": false,
+          "reveal": "always",
+          "focus": true,
+          "panel": "shared",
+          "showReuseMessage": true,
+          "clear": true
+      }
     }
   ]
 }

@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "(gdb) Launch",
+      "name": "Launch native",
       "type": "cppdbg",
       "request": "launch",
       "preLaunchTask": "Build target",
@@ -25,6 +25,38 @@
               "ignoreFailures": true
           }
       ]
+    },
+
+    {
+      "name": "Launch on target",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/qt_test",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "serverLaunchTimeout": 20000,
+      "logging": {
+          "engineLogging": true,
+          "trace": true,
+          "traceResponse": true,
+          "programOutput": true
+
+      },
+      "MIMode": "gdb",
+      "targetArchitecture": "arm64",
+      // "preLaunchTask": "Start remote gdbserver",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          }
+      ],
+      "miDebuggerPath": "${env:OECORE_NATIVE_SYSROOT}/usr/bin/aarch64-poky-linux/${env:GDB}",
+      "miDebuggerServerAddress": "[fe80::a851:45ff:fe17:d52d%eno1]:3000",
     }
 
   ]
